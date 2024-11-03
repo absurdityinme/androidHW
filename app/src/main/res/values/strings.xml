@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HW</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="message">Message</string>
+    <string name="toSecondScreen">Go to the second screen</string>
+    <string name="toThirdScreen">Go to the third screen</string>
+    <string name="defaultText">No text was entered</string>
+    <string name="toBottomSheet">Go to the bottom sheet</string>
+    <string name="toFirstScreen">Send to the first screen</string>
 </resources>
