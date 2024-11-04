@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.hw.databinding.FragmentScreenFirstBinding
 
 class FirstScreenFragment: Fragment(R.layout.fragment_screen_first), ManagerFragment {
-    var binding: FragmentScreenFirstBinding? = null
+    private var binding: FragmentScreenFirstBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,8 +47,25 @@ class FirstScreenFragment: Fragment(R.layout.fragment_screen_first), ManagerFrag
         }
     }
 
+    fun updateEt(updateText: String) {
+        binding?.apply {
+            etInput.setText(updateText)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    companion object {
+        const val TEXT_TAG = "FIRST_TEXT_TAG"
+
+        fun getInstance(text: String?) =
+            SecondScreenFragment().apply {
+                arguments = Bundle().apply {
+                    putString(TEXT_TAG, text)
+                }
+            }
     }
 }

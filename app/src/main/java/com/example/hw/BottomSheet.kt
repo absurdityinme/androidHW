@@ -21,7 +21,10 @@ class BottomSheet: BottomSheetDialogFragment(R.layout.dialog_bottom_sheet) {
             btnBottomSheet.isEnabled = false
             etInputBottomSheet.doOnTextChanged { text, _, _, _ ->
                 btnBottomSheet.isEnabled = !text.isNullOrBlank()
-                }
+            }
+            btnBottomSheet.setOnClickListener() {
+                (parentFragment as? FirstScreenFragment)?.updateEt(etInputBottomSheet.text.toString())
+            }
         }
     }
 
