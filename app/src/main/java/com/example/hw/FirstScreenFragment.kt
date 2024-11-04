@@ -57,8 +57,4 @@ class FirstScreenFragment: Fragment(R.layout.fragment_screen_first), ManagerFrag
         super.onDestroyView()
         binding = null
     }
-
-    companion object {
-        const val TEXT_TAG = "FIRST_TEXT_TAG"
-    }
 }
