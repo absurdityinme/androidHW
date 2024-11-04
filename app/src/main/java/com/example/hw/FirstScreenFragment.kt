@@ -60,12 +60,5 @@ class FirstScreenFragment: Fragment(R.layout.fragment_screen_first), ManagerFrag
 
     companion object {
         const val TEXT_TAG = "FIRST_TEXT_TAG"
-
-        fun getInstance(text: String?) =
-            SecondScreenFragment().apply {
-                arguments = Bundle().apply {
-                    putString(TEXT_TAG, text)
-                }
-            }
     }
 }
