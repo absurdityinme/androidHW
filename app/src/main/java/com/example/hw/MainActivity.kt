@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun init() {
         supportFragmentManager.beginTransaction()
-            .add(R.id.main_container, FirstScreenFragment())
+            .add(mainContainerId, FirstScreenFragment())
             .commit()
     }
 
