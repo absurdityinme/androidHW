@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">HW</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="list_view">List</string>
+    <string name="grid_view">Grid</string>
+    <string name="sample_text">Sample text</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
+    <string name="addOne">Add one</string>
+    <string name="removeOne">Remove one</string>
+    <string name="number">Number of elements</string>
 </resources>
