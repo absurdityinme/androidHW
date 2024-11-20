@@ -103,6 +103,60 @@ object Repository {
             imageUrl = "https://i.pinimg.com/736x/27/4a/68/274a687dec2b6ffc962f8d1af0142a7b.jpg",
             title = "Meme",
             description = "Danya Kashin is having hard times being ginger-head."
+        ),
+        BasicHolderData(
+            id = "17",
+            imageUrl = "https://i.pinimg.com/736x/68/f5/4f/68f54f3b37dc3ab25b9dac5ed2d48769.jpg",
+            title = "Anya",
+            description = "Anya is the nurse of the crew on the Tulpar spaceship. She's in charge of the medical supplies of the ship, conducting the other crew mates psych evaluations and assisting them with medical care."
+        ),
+        BasicHolderData(
+            id = "18",
+            imageUrl = "https://i.pinimg.com/736x/d0/d7/79/d0d77983ee4fb3aa051c22cfe756223e.jpg",
+            title = "Daisuke",
+            description = "Daisuke (ダイスケ) is an intern on the Tulpar space freighter under the supervision of the ship's mechanic, Swansea."
+        ),
+        BasicHolderData(
+            id = "19",
+            imageUrl = "https://i.pinimg.com/736x/03/4b/ad/034bad19271e536ee6ddc818dae30598.jpg",
+            title = "Weapons",
+            description = "The Weapon Devils (武ぶ器きの悪あく魔ま Buki no Akuma?) were a group of 7 Devils that previously served under the Four Horsemen[1], each member embodies the fear of a certain type of weapon. All Weapon Devils are now currently fused with a human."
+        ),
+        BasicHolderData(
+            id = "20",
+            imageUrl = "https://i.pinimg.com/736x/11/d9/22/11d92290bd92f6719e687f86a734db3d.jpg",
+            title = "Leon & Cats",
+            description = "Leon Scott Kennedy (Japanese: レオン・スコット・ケネディ, Hepburn: Reon Sukotto Kenedi) is a character in the Resident Evil survival horror video game series created by the Japanese company Capcom. He was introduced as one of the two player characters in the video game Resident Evil 2 (1998), alongside Claire Redfield. During the events of Resident Evil 2, Leon is a rookie police officer who arrives in the doomed Raccoon City late for his first day on the job and is confronted by a zombie outbreak."
+        ),
+        BasicHolderData(
+            id = "21",
+            imageUrl = "https://i.pinimg.com/736x/f9/f7/70/f9f7704769f0fee1df92d216c06aa994.jpg",
+            title = "Bennet & Florance",
+            description = "Hello Charlotte is an RPG Maker game series made by etherane, an artist and game developer from Estonia. It's about a girl named Charlotte Wiltshire and her life in The House, with her friends, and at school! There are 5 titles, but only 3 of them make up the main storyline."
+        ),
+        BasicHolderData(
+            id = "22",
+            imageUrl = "https://i.pinimg.com/736x/41/36/3d/41363dc3ccc07446262f18eb9603750c.jpg",
+            title = "Cute fox",
+            description = "Foxes are small-to-medium-sized omnivorous mammals belonging to several genera of the family Canidae. They have a flattened skull; upright, triangular ears; a pointed, slightly upturned snout; and a long, bushy tail (\"brush\")."
+        ),
+        BasicHolderData(
+            id = "23",
+            imageUrl = "https://i.pinimg.com/736x/66/54/b3/6654b306b7daf88df904a3df8b6ae789.jpg",
+            title = "Deer with wings",
+            description = "A deer (pl.: deer) or true deer is a hoofed ruminant ungulate of the family Cervidae (informally the deer family). Cervidae is divided into subfamilies Cervinae (which includes, among others, muntjac, elk (wapiti), red deer, and fallow deer) and Capreolinae (which includes, among others reindeer (caribou), white-tailed deer, roe deer, and moose). "
+        ),
+        BasicHolderData(
+            id = "24",
+            imageUrl = "https://i.pinimg.com/736x/e3/db/71/e3db718a6dabef237745016c6be3a54b.jpg",
+            title = "Madoka & Homura",
+            description = "Puella Magi Madoka Magica (Japanese: 魔法少女まどか☆マギカ, Hepburn: Mahō Shōjo Madoka Magika), also known simply as Madoka Magica, is a Japanese anime television series created by Magica Quartet;[b] and animated by Shaft. The story follows a group of middle school girls, led by protagonist Madoka Kaname, who make supernatural contracts to become magical girls. In battling surreal enemies known as \"witches\", they learn of the anguish and peril associated with their new roles. The first ten episodes of the series aired on TBS and MBS between January and March 2011, while the final two episodes were delayed until April of the same year due to the Tōhoku earthquake and tsunami."
+        ),
+        BasicHolderData(
+            id = "25",
+            imageUrl = "https://i.pinimg.com/736x/ab/67/cc/ab67ccf27192f623991956c600642a20.jpg",
+            title = "Goat",
+            description = "The goat or domestic goat (Capra hircus) is a species of goat-antelope that is mostly kept as livestock. It was domesticated from the wild goat (C. aegagrus) of Southwest Asia and Eastern Europe. The goat is a member of the family Bovidae, meaning it is closely related to the sheep. It was one of the first animals to be domesticated, in Iran around 10,000 years ago."
         )
     )
 

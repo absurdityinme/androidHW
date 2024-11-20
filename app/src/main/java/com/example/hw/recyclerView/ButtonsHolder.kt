@@ -20,11 +20,6 @@ class ButtonsHolder(
         }
     }
 
-    private val requestOptions = RequestOptions
-        .diskCacheStrategyOf(
-            DiskCacheStrategy.ALL
-        )
-
     fun bindItem(itemData: ButtonHolderData) {
         viewBinding.apply {
             btnList.text = itemData.btn1

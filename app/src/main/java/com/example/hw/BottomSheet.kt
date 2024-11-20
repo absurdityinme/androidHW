@@ -16,7 +16,7 @@ class BottomSheet: BottomSheetDialogFragment(R.layout.dialog_bottom_sheet) {
 
     private fun init() {
         binding?.apply {
-            var listLength = 0
+            var listLength: Int
             val adapter = (parentFragment as? FirstScreenFragment)?.adapter
 
             var count: Int
