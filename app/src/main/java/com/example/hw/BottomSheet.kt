@@ -3,9 +3,6 @@ package com.example.hw
 import android.os.Bundle
 import android.view.View
 import com.example.hw.databinding.DialogBottomSheetBinding
-import com.example.hw.recyclerView.BasicHolderData
-import com.example.hw.recyclerView.MultipleHoldersData
-import com.example.hw.recyclerView.Repository
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomSheet: BottomSheetDialogFragment(R.layout.dialog_bottom_sheet) {
@@ -27,10 +24,7 @@ class BottomSheet: BottomSheetDialogFragment(R.layout.dialog_bottom_sheet) {
 
             btnAdd.setOnClickListener() {
                 count = etBottomSheet.text.toString().toIntOrNull() ?: 0
-                repeat(count) {
-                    listLength = adapter?.listLength ?: 0
-                    adapter?.addItem((1..<listLength).random(), generate())
-                }
+                adapter?.addItems(count)
             }
             btnRemove.setOnClickListener(){
                 count = etBottomSheet.text.toString().toIntOrNull() ?: 0
@@ -38,35 +32,30 @@ class BottomSheet: BottomSheetDialogFragment(R.layout.dialog_bottom_sheet) {
                 if (count > listLength) {
                     count = listLength - 1
                 }
-                repeat(count) {
-                    listLength = adapter?.listLength ?: 0
-                    adapter?.removeItem((1..<listLength).random())
-                }
+                adapter?.removeItems(count)
             }
             btnAddOne.setOnClickListener() {
                 listLength = adapter?.listLength ?: 0
-                position = (1..<listLength).random()
-                adapter?.addItem(position, generate())
+                if (listLength > 1) {
+                    position = (1..<listLength).random()
+                    adapter?.addItem(position)
+                }
+                else {
+                    position = 1
+                    adapter?.addItem(position)
+                }
             }
             btnRemoveOne.setOnClickListener() {
                 listLength = adapter?.listLength ?: 0
-                position = (1..<listLength).random()
-                adapter?.removeItem(position)
+                if (listLength > 1) {
+                    position = (1..<listLength).random()
+                    adapter?.removeItem(position)
+                }
             }
         }
     }
 
     companion object {
         const val TEXT_TAG = "BOTTOM_SHEET_TAG"
-    }
-
-    private fun generate(): MultipleHoldersData {
-        val listLength = (parentFragment as? FirstScreenFragment)?.adapter?.listLength ?: 0
-        return  BasicHolderData(
-            id = (listLength + 1).toString(),
-            title = Repository.getRandomTitle(),
-            description = Repository.getRandomDesc(),
-            imageUrl = Repository.getRandomImage()
-        )
     }
 }

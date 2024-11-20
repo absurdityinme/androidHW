@@ -2,7 +2,6 @@ package com.example.hw
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
@@ -10,7 +9,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.hw.databinding.FragmentScreenItemBinding
 import com.example.hw.recyclerView.BasicHolderData
-import com.example.hw.recyclerView.MultipleHoldersAdapter
 import com.example.hw.recyclerView.MultipleHoldersData
 
 class ItemScreenFragment: Fragment(R.layout.fragment_screen_item) {

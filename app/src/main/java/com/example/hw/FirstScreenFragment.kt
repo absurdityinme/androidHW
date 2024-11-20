@@ -1,6 +1,7 @@
 package com.example.hw
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -19,13 +20,21 @@ class FirstScreenFragment: Fragment(R.layout.fragment_screen_first) {
 
     private var viewBinding: FragmentScreenFirstBinding? = null
     var adapter: MultipleHoldersAdapter? = null
+    private var recyclerType: String = LIST
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewBinding = FragmentScreenFirstBinding.bind(view)
+        recyclerType = savedInstanceState?.getString(RECYCLER_TYPE) ?: LIST
         val glide = Glide.with(requireContext())
         initRecyclerView(requestManager = glide)
+        setLayout(recyclerType)
         init()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(RECYCLER_TYPE, recyclerType)
     }
 
     private fun initRecyclerView(requestManager: RequestManager) {
@@ -58,6 +67,13 @@ class FirstScreenFragment: Fragment(R.layout.fragment_screen_first) {
         }
     }
 
+    private fun setLayout(type: String) {
+        when(type) {
+            LIST -> setListLayout()
+            GRID -> setGridLayout()
+        }
+    }
+
     private fun onItemClick(itemId: String) {
         val bundle = Bundle().apply {
             putSerializable(ItemScreenFragment.LIST_TAG, adapter?.dataList?.let { ArrayList(it) })
@@ -65,7 +81,8 @@ class FirstScreenFragment: Fragment(R.layout.fragment_screen_first) {
         }
 
         parentFragmentManager.beginTransaction()
-            .replace(MainActivity.mainContainerId, ItemScreenFragment.getInstance(
+            .hide(this)
+            .add(MainActivity.mainContainerId, ItemScreenFragment.getInstance(
                 bundle = bundle
             ))
             .addToBackStack(null)
@@ -74,12 +91,22 @@ class FirstScreenFragment: Fragment(R.layout.fragment_screen_first) {
     }
 
     private fun onBtnListClick() {
+        setListLayout()
+        recyclerType = LIST
+    }
+
+    private fun onBtnGridClick() {
+        setGridLayout()
+        recyclerType = GRID
+    }
+
+    private fun setListLayout() {
         viewBinding?.apply {
             recycler.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
     }
 
-    private fun onBtnGridClick() {
+    private fun setGridLayout() {
         viewBinding?.apply {
             val gridLayoutManager = GridLayoutManager(requireContext(), 3, RecyclerView.VERTICAL, false)
             gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
@@ -100,5 +127,11 @@ class FirstScreenFragment: Fragment(R.layout.fragment_screen_first) {
         viewBinding?.recycler?.adapter = null
         viewBinding = null
         adapter = null
+    }
+
+    companion object {
+        private const val RECYCLER_TYPE = "RECYCLER_TYPE"
+        private const val LIST = "LIST"
+        private const val GRID = "GRID"
     }
 }

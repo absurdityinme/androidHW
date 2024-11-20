@@ -2,11 +2,13 @@ package com.example.hw.recyclerView
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.example.hw.R
 import com.example.hw.databinding.ItemBasicBinding
 import com.example.hw.databinding.ItemButtonsBinding
+import com.example.hw.utils.MyDiffUtil
 
 class MultipleHoldersAdapter(
     private val requestManager: RequestManager,
@@ -87,10 +89,33 @@ class MultipleHoldersAdapter(
         }
     }
 
-    fun addItem(position: Int, itemData: MultipleHoldersData) {
-        dataList.add(position, itemData)
+    fun addItem(position: Int) {
+        dataList.add(position, generate())
         listLength++
         notifyItemInserted(position)
+    }
+
+    fun addItems(count: Int) {
+        val newList = dataList.toMutableList()
+        repeat(count) {
+            if (listLength > 1) {
+                newList.add((1..<listLength).random(), generate())
+            }
+            else {
+                newList.add(1, generate())
+            }
+            listLength++
+        }
+        updateData(newList)
+    }
+
+    fun removeItems(count: Int) {
+        val newList = dataList.toMutableList()
+        repeat(count) {
+            newList.removeAt((1..<listLength).random())
+            listLength--
+        }
+        updateData(newList)
     }
 
     fun removeItem(position: Int) {
@@ -101,5 +126,25 @@ class MultipleHoldersAdapter(
 
     fun getItemIdFromPosition(position: Int): String {
         return dataList[position].id
+    }
+
+    fun updateData(newList: List<MultipleHoldersData>) {
+        val diffCallback = MyDiffUtil(
+            oldList = dataList,
+            newList = newList
+        )
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        diffResult.dispatchUpdatesTo(this)
+        dataList.clear()
+        dataList.addAll(newList)
+    }
+
+    private fun generate(): MultipleHoldersData {
+        return  BasicHolderData(
+            id = (listLength + 1).toString(),
+            title = Repository.getRandomTitle(),
+            description = Repository.getRandomDesc(),
+            imageUrl = Repository.getRandomImage()
+        )
     }
 }
