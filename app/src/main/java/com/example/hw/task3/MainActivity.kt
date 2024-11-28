@@ -8,7 +8,6 @@ import com.example.hw.databinding.ActivityMainBinding
 import com.example.hw.task3.screens.ViewPagerFragment
 
 class MainActivity : AppCompatActivity() {
-    private val viewBinding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,10 +19,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .add(mainContainerId, ViewPagerFragment())
             .commit()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 
     companion object {
